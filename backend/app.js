@@ -1,17 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-
+const tarefaRoutes = require('./routes/tarefasRoutes');
 
 const app = express();
+app.use(cors());
+app.use(express.json());
 
-// Middlewares
-app.use(cors());           
-app.use(express.json());  
-
-// Rotas
-app.get('/', (req,res) => {
-    res.json({message: 'Olá do backend!'});
-});
-
+app.use('/tarefas', tarefaRoutes); // prefixo /tarefas
 
 module.exports = app;
