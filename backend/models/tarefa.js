@@ -6,7 +6,7 @@ const tarefaSchema = new mongoose.Schema({
   dataCriacao: { type: Date, default: Date.now },
   dataConclusao: { type: Date },
   status: { type: String, enum: ['progresso', 'concluida'], default: 'progresso' },
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User ', required: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User '},
 });
 
 const Tarefa = mongoose.model('Tarefa', tarefaSchema);

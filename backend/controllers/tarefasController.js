@@ -20,5 +20,13 @@ const getTarefaById = async (req, res) => {
     }
 };
 
-// Exportando a função corretamente
-module.exports = { getTarefas, getTarefaById };
+const createTarefa = async (req, res) => {
+    try {
+        const tarefa = await Tarefa.create(req.body);
+        res.status(201).json(tarefa);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+};
+
+module.exports = { getTarefas, getTarefaById, createTarefa };
